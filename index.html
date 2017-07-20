@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+		<div class="content">
+			<input type="text" placeholder="万元"/>
+			<span id="money">5</span>
+			<button id="btn">▲</button>
+		</div>
+		<ul class="ul">
+			<li>10</li>
+			<li>20</li>
+			<li>30</li>
+			<li>40</li>
+			<li>50</li>
+		</ul>
+		<script src="jquery版本/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#btn").click(function (){
+				$(".ul").css("display","block");
+//				var li = $(".ul>li");//获取所有li
+//				var mon = $("#money").html();//打印span里面的值
+//				for (var i = 0; i < li.length; i++) {
+//					li[i].index = i;//记录li的下标(自定义属性)
+//					li[i].onclick = function (){		
+//						console.log(this.index)//获取下标
+//						console.log(li[this.index].innerHTML);//li的内容
+//						
+//						$("#money").html(li[this.index].innerHTML);
+//												
+//					}
+//				}
+				$('.ul>li').each(function(index, element) {
+					this.onclick=function(){
+						console.log(index);//获取下标
+						console.log($('.ul>li')[index].innerHTML);//获取li的内容
+						$("#money").html($('.ul>li')[index].innerHTML);
+						$('.ul').css("display","none");	
+					}
+		        });
+			});
+		</script>
+	</body>
+</html>
